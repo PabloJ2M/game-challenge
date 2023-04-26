@@ -12,7 +12,7 @@ let font = null;
 
 function preload()
 {
-    font = loadFont('Assets/pixlemix.ttf');
+    //font = loadFont('Assets/pixlemix.ttf');
     playerImg = loadImage("Assets/logo-full.png");
     plaformsImg = loadImage("Assets/platform.png");
     backgroundImg = loadImage("Assets/background.jpg");
