@@ -98,6 +98,6 @@ logoutButton.addEventListener("click", () => auth.signOut());
 
 auth.onAuthStateChanged(user => 
 {
-    if (user) { userAuth = user; loginButton.style.display = "none"; logoutButton.style.display = "unset"; }
+    if (user) { userAuth = user; loginButton.style.display = "none"; logoutButton.style.display = "unset"; setDataScore(dataScore + 1); }
     else { loginButton.style.display = "unset"; logoutButton.style.display = "none"; }
 });
