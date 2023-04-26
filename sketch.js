@@ -35,12 +35,14 @@ function draw()
     //draw player
     character.draw();
     character.update(speed);
-    character.position.x += direction * 7; //movement
+    var halfPlayer = character.size * 0.5;
+    // character.position.x += direction * 7; //movement
+    character.position.x = Math.min(Math.max(character.position.x + direction * 7, halfPlayer), fitter.clientWidth - halfPlayer);
     
     //ground detection
     character.isGrounded = false; 
     let h = character.position.x;
-    let v = character.position.y + character.size * 0.5;
+    let v = character.position.y + halfPlayer;
     for(let i = 0; i < platforms.length; i++)
     {
         var holePoint = platforms[i].holePosition + platforms[i].holeSize;
@@ -86,6 +88,7 @@ function draw()
     if (character.position.y < 0 || character.position.y > fitter.clientHeight)
     {
         showLiderboard(true);
+        setDataScore(Math.floor(score));
         interface = true;
     }
 }
