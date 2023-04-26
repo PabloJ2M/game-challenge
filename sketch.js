@@ -8,12 +8,14 @@ let direction = 0;
 let playerImg = null;
 let platformsImg = null;
 let backgroundImg = null;
+let font = null;
 
 function preload()
 {
-    //playerImg = loadImage("Assets/logo-full.png");
-    //plaformsImg = loadImage("Assets/platform.png");
-    //backgroundImg = loadImage("Assets/background.jpg");
+    font = loadFont('Assets/pixlemix.ttf');
+    playerImg = loadImage("Assets/logo-full.png");
+    plaformsImg = loadImage("Assets/platform.png");
+    backgroundImg = loadImage("Assets/background.jpg");
 }
 async function setup()
 {
@@ -22,6 +24,7 @@ async function setup()
     //textureWrap(MIRROR);
     imageMode(CENTER);
     pixelDensity(1);
+    textFont(font);
 
     character = new Character({ x: fitter.clientWidth * 0.5, y: distance * 2.5 });
     character.draw(playerImg);
@@ -90,7 +93,7 @@ function draw()
 
     //UI
     textSize(30);
-    fill('black');
+    fill('white');
     textStyle(BOLD);
     textAlign(LEFT, TOP);
     text('Score: ' + Math.floor(score), 10, 15);

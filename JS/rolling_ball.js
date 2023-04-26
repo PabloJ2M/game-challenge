@@ -35,7 +35,7 @@ class Character
     constructor(position)
     {
         this.position = position;
-        this.size = 50;
+        this.size = 60;
 
         this.fallSpeed = 0;
         this.isGrounded = false;
@@ -43,10 +43,10 @@ class Character
 
     draw(img)
     {
-        fill('red');
-        //image(img, this.position.x, this.position.y, this.size, this.size);
-        circle(this.position.x, this.position.y, this.size);
-        fill('white');
+        //fill('red');
+        image(img, this.position.x, this.position.y, this.size, this.size);
+        //circle(this.position.x, this.position.y, this.size);
+        //fill('white');
     }
     update(speed)
     {

@@ -54,12 +54,12 @@ async function readAllData()
 {
     console.log("db");
     removeAllItemsFromTable();
-    var list = await ref.orderBy('Score', "desc").limit(5).get();
+    var list = await ref.orderBy('score', "desc").limit(5).get();
     
     var numeration = 1;
     list.forEach(row => {
-        var name = row.data().Name;
-        var score = row.data().Score;
+        var name = row.data().username;
+        var score = row.data().score;
         AddItemToTable(numeration, name, score);
         numeration++;
     });
@@ -100,6 +100,10 @@ logoutButton.addEventListener("click", () => auth.signOut());
 
 auth.onAuthStateChanged(user => 
 {
-    if (user) { userAuth = user; loginButton.style.display = "none"; logoutButton.style.display = "unset"; setDataScore(dataScore); }
-    else { loginButton.style.display = "unset"; logoutButton.style.display = "none"; }
+    if (user)
+    {
+        userAuth = user; loginButton.style.display = "none"; logoutButton.style.display = "unset"; setDataScore(dataScore);
+        document.getElementById("warning").display = "none";
+    }
+    else { loginButton.style.display = "unset"; logoutButton.style.display = "none"; document.getElementById("warning").display = "block"; }
 });
