@@ -24,7 +24,7 @@ async function setup()
     //textureWrap(MIRROR);
     imageMode(CENTER);
     pixelDensity(1);
-    textFont(font);
+    //textFont(font);
 
     character = new Character({ x: fitter.clientWidth * 0.5, y: distance * 2.5 });
     character.draw(playerImg);
