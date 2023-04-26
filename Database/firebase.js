@@ -45,9 +45,9 @@ async function updateDataScore()
     var get = await doc.get();
 
     if(get.exists)
-    { if(get.data().score < dataScore) doc.update({score: dataScore}); }
+    { if(get.data().score < dataScore) doc.update({score: Number(dataScore)}); }
     else
-    { doc.set({username: userAuth.displayName, score: dataScore}); }
+    { doc.set({username: userAuth.displayName, score: Number(dataScore)}); }
     console.log(dataScore);
 }
 async function readAllData()
