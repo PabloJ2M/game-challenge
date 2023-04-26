@@ -39,11 +39,12 @@ class Character
         this.isGrounded = false;
     }
 
-    draw()
+    draw(img)
     {
-        fill('red');
-        circle(this.position.x, this.position.y, this.size);
-        fill('white');
+        //fill('red');
+        image(img, this.position.x, this.position.y, this.size, this.size);
+        //circle(this.position.x, this.position.y, this.size);
+        //fill('white');
     }
     update(speed)
     {

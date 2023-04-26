@@ -5,7 +5,12 @@ let score = 0;
 let speed = 1;
 
 let direction = 0;
+let playerImg = null;
 
+function preload()
+{
+    playerImg = loadImage("Assets/logo-full.png");
+}
 async function setup()
 {
     var canvas = createCanvas(fitter.clientWidth, fitter.clientHeight);
@@ -14,7 +19,7 @@ async function setup()
     pixelDensity(1);
 
     character = new Character({ x: fitter.clientWidth * 0.5, y: distance * 2.5 });
-    character.draw();
+    character.draw(playerImg);
 
     //build platforms
     var count = Math.floor(fitter.clientHeight / distance) + 2;
@@ -33,7 +38,7 @@ function draw()
     score += 0.03;
 
     //draw player
-    character.draw();
+    character.draw(playerImg);
     character.update(speed);
     var halfPlayer = character.size * 0.5;
     // character.position.x += direction * 7; //movement
