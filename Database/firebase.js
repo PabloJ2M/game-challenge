@@ -22,6 +22,7 @@ getDataScore();
 async function getDataScore()
 {
     dataScore = currentScore;
+    console.log(dataScore);
     if(!userAuth) return;
 
     var doc = await ref.doc(userAuth.uid).get();
@@ -47,6 +48,7 @@ async function updateDataScore()
     { if(get.data().score < dataScore) doc.update({score: dataScore}); }
     else
     { doc.set({username: userAuth.displayName, score: dataScore}); }
+    console.log(dataScore);
 }
 async function readAllData()
 {
@@ -98,6 +100,6 @@ logoutButton.addEventListener("click", () => auth.signOut());
 
 auth.onAuthStateChanged(user => 
 {
-    if (user) { userAuth = user; loginButton.style.display = "none"; logoutButton.style.display = "unset"; setDataScore(dataScore + 1); }
+    if (user) { userAuth = user; loginButton.style.display = "none"; logoutButton.style.display = "unset"; setDataScore(dataScore); }
     else { loginButton.style.display = "unset"; logoutButton.style.display = "none"; }
 });
