@@ -6,15 +6,20 @@ let speed = 1;
 
 let direction = 0;
 let playerImg = null;
+let platformsImg = null;
+let backgroundImg = null;
 
 function preload()
 {
-    playerImg = loadImage("Assets/logo-full.png");
+    //playerImg = loadImage("Assets/logo-full.png");
+    //plaformsImg = loadImage("Assets/platform.png");
+    //backgroundImg = loadImage("Assets/background.jpg");
 }
 async function setup()
 {
     var canvas = createCanvas(fitter.clientWidth, fitter.clientHeight);
     canvas.parent("gameplay");
+    //textureWrap(MIRROR);
     imageMode(CENTER);
     pixelDensity(1);
 
@@ -36,6 +41,7 @@ function draw()
 
     clear();
     score += 0.03;
+    speed = Math.min(Math.max(speed += 0.0025, 0), 5);
 
     //draw player
     character.draw(playerImg);

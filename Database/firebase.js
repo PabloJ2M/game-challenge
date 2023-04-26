@@ -18,6 +18,7 @@ var sessionScore = sessionStorage.getItem("score");
 var currentScore = sessionScore ? sessionScore : 0;
 var dataScore = 0;
 
+getDataScore();
 async function getDataScore()
 {
     dataScore = currentScore;

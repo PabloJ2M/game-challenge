@@ -10,13 +10,15 @@ class Platform
         this.thickness = 25;
     }
 
-    draw()
+    draw(img)
     {
         var point = this.holePosition;
+        //image(img, point + this.holeSize, this.position.y, this.width, this.thickness);
         rect(point + this.holeSize, this.position.y, this.width, this.thickness);
 
         point -= this.width;
         rect(point, this.position.y, this.width, this.thickness);
+        //image(img, point, this,position.y, this.width, this.thickness);
     }
     update(speed)
     {
@@ -41,10 +43,10 @@ class Character
 
     draw(img)
     {
-        //fill('red');
-        image(img, this.position.x, this.position.y, this.size, this.size);
-        //circle(this.position.x, this.position.y, this.size);
-        //fill('white');
+        fill('red');
+        //image(img, this.position.x, this.position.y, this.size, this.size);
+        circle(this.position.x, this.position.y, this.size);
+        fill('white');
     }
     update(speed)
     {
